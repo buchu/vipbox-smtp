@@ -10,5 +10,5 @@ RUN apt-get update \
 ADD assets/filter.py /etc/postfix/filter.py 
 ADD assets/install.sh /opt/install.sh
 
-# Run
-CMD /opt/install.sh;/usr/bin/supervisord -c /etc/supervisor/supervisord.conf
+EXPOSE 25/tcp
+CMD ["/opt/install.sh;/usr/bin/supervisord", "-c", "/etc/supervisor/supervisord.conf"]
